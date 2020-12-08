@@ -10,5 +10,9 @@ def hello():
     count = redis.incr('hits')
     return 'Hello World! I have been seen {} times.\n'.format(count)
 
+@app.route('/health')
+def health():
+    return 'Microservice a is ready!'
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
