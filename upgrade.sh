@@ -15,7 +15,12 @@ helm upgrade pythonapp ~/sd-project/sd-project --debug --recreate-pods
 echo "..."
 echo "App web en python desplegada junto a la base de datos"
 sleep 3
-python test.py
+echo "..."
+echo "Instalando dependencias.."
+pip3 install flask
+pip3 install redis
+echo "Corriendo pruebas..."
+python3 test.py
 kubectl get ingress
 echo "Ingresar a la ip publica, la ruta / muestra la aplicación que cuenta el numero de veces que se ingresa a la app y /health que el microservicio se encuentra arriba"
 
