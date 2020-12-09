@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pythonapp
+  name: {{ .Values.name}}
 spec:
   replicas: 2                    # Number of pods to run at any given time
   selector:
     matchLabels:
-      app: python
+      app: {{ .Values.name}}
   template:
     metadata:
       labels:
-        app: python
+        app: {{ .Values.name}}
     spec:
       containers:
-      - name: python
+      - name: {{ .Values.name}}
         image: german2404/counter:1.0.2
         imagePullPolicy: IfNotPresent
         ports:
@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pythonnodeport
+  name: {{ .Values.name}}
 spec:
   type: NodePort
   ports:
@@ -41,7 +41,7 @@ spec:
     port: 8000
     targetPort: 8000
   selector:
-    app: python
+    app: {{ .Values.name}}
 ---
 apiVersion: v1  
 kind: Service
