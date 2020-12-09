@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: pythonapp
 spec:
-  replicas: 1                    # Number of pods to run at any given time
+  replicas: 2                    # Number of pods to run at any given time
   selector:
     matchLabels:
       app: python
@@ -15,16 +15,16 @@ spec:
     spec:
       containers:
       - name: python
-        image: german2404/counter:1.0.1
+        image: german2404/counter:1.0.2
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8000
-	livenessProbe:
+        livenessProbe:
           httpGet:
            path: /health
            port: 8000
-         initialDelaySeconds: 5
-         periodSeconds: 5
+          initialDelaySeconds: 5
+          periodSeconds: 5
       - name: redis
         image: redis
         ports:
@@ -33,9 +33,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pythonbalancer
+  name: pythonnodeport
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - name: http
     port: 8000

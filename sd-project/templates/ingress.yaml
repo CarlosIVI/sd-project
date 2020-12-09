@@ -12,3 +12,8 @@ spec:
         backend:
           serviceName: {{ .Values.name}}
           servicePort: {{ .Values.port}}   
+      - path: /health
+        backend:
+          serviceName: {{ .Values.name}}
+          servicePort: {{ .Values.port}}
+
