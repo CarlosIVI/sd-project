@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: {{ .Values.name}}
 spec:
-  replicas: 2                    # Number of pods to run at any given time
+        #replicas: 2                    # Number of pods to run at any given time
   selector:
     matchLabels:
       app: {{ .Values.name}}
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name}}
-        image: german2404/counter:1.0.2
+        image: german2404/counter:lastest
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8000

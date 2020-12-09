@@ -4,3 +4,6 @@ port: 8000
 servicetype: NodePort
 name: pythonapp
 ingressname: gateway-ingress
+minReplicas: 3
+maxReplicas: 10
+cpu: 1
