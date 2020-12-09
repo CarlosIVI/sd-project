@@ -2,5 +2,5 @@ replicaCount: 2
 image: german2404/counter:1.0.2
 port: 8000
 servicetype: NodePort
-name: sd-project
+name: pythonapp
 ingressname: gateway-ingress
