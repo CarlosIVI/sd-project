@@ -7,3 +7,4 @@ ingressname: gateway-ingress
 minReplicas: 3
 maxReplicas: 10
 cpu: 1
+timestamp: 1
