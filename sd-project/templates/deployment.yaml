@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name}}
-        image: german2404/counter:lastest
+        image: german2404/counter:latest
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8000
