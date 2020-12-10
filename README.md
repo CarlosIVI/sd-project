@@ -1,4 +1,4 @@
-# Counter app deployed in Kubernetes
+# Counter app deployed in Kubernetes | Aplicación de Contador desplegada en Kubernetes
 
 
 ## Integrantes
