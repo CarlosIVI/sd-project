@@ -11,7 +11,7 @@ docker push german2404/counter:latest
 echo "desplegando los cambios en la aplicación"
 echo "."
 echo ".."
-helm upgrade pythonapp ~/prueba/sd-project/sd-project --debug
+helm upgrade pythonapp ~/sd-project/sd-project --debug
 echo "..."
 echo "App web en python desplegada junto a la base de datos"
 sleep 3
