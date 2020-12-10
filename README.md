@@ -1,5 +1,4 @@
-# Proyecto final de Sistemas distribuidos
-# Counter app deployed in Kubernetes
+# Proyecto final de Sistemas distribuidos | Counter app deployed in Kubernetes
 
 
 ## Integrantes
