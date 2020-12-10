@@ -1,10 +1,11 @@
-#Counter app deployed in Kubernetes
+# Proyecto final de Sistemas distribuidos
+# Counter app deployed in Kubernetes
 
-
-[John Sebastian Urbano Lenis](https://github.com/SebastianUrbano/),
-[German Carvajal](https://github.com/German2404),
-[Jhan Carlos Diaz Vidal](https://github.com/CarlosIVI/),
-and [Mateo Matta López](https://github.com/MateoMatta)
+## Integrantes
+**[John Sebastian Urbano Lenis](https://github.com/SebastianUrbano/) -----> A00292788**
+**[German Carvajal](https://github.com/German2404) -----> A00134280**
+**[Jhan Carlos Diaz Vidal](https://github.com/CarlosIVI/) -----> A00310560**
+**[Mateo Matta López](https://github.com/MateoMatta) -----> A00310540**
 
 
 
