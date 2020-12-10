@@ -2,7 +2,7 @@
 
 
 ## Integrantes
-**[John Sebastian Urbano Lenis](https://github.com/SebastianUrbano/) -----> A00292788**
+**[John Sebastián Urbano Lenis](https://github.com/SebastianUrbano/) -----> A00292788**
 
 **[German Carvajal](https://github.com/German2404) -----> A00134280**
 
@@ -32,7 +32,7 @@ El siguiente proyecto realizará la creación de un contador, el cual será un s
 
 ### Requerimientos y Dependencias
 •	Docker
-•	Consola Linux de Kubernetes Cluster en Google Cloud Platfom
+•	Consola Linux de Kubernetes Cluster en Google Cloud Platform
 •	GitHub
 •	Lenguaje de programación y scripting
 •	Helm
@@ -83,9 +83,9 @@ Archivo de requerimientos requirements.txt del contenedor de Docker para ejecuta
     flask
 
 ### Chart de Helm
-Helm es una herramienta que ayuda a gestionar aplicaciones de Kubernetes. Ayuda a manejar los Kubernetes haciendo uso de cartas de navegación (Charts). Esta ayuda a definiar, instalizar y actualizar aplicaciones de Kubernetes. Se mostrará a continuación los archivos y configuraciones necesarios para desplegar la aplicación de este proyecto.
+Helm es una herramienta que ayuda a gestionar aplicaciones de Kubernetes. Ayuda a manejar los Kubernetes haciendo uso de cartas de navegación (Charts). Esta ayuda a definir, instalar y actualizar aplicaciones de Kubernetes. Se mostrará a continuación los archivos y configuraciones necesarios para desplegar la aplicación de este proyecto.
 
-Definición del Deployment de Kubernetes y redireccionamiento del servicio usando NodePort dentro del archivo deployment.yaml
+Definición del Deployment de Kubernetes y redireccionamiento del servicio usando NodePort dentro del archivo deployment.yaml. El NodePort es el servicio utilizado para que el resto de servicios y apps conozcan al aplicativo.
     ---
     apiVersion: apps/v1
     kind: Deployment
@@ -165,7 +165,7 @@ Descripción del chart en el archivo Chart.yaml
     appVersion: 1.0.2
 
 
-Constantes de variables a usar en la configuración, con valores específicos de configuración y nombres de recursos a usar. Ubicado en el archivo values.yaml
+Constantes de variables a usar en la configuración, con valores específicos de configuración y nombres de recursos a usar. Ubicado en el archivo values.yaml. 
   
     replicaCount: 2
     image: german2404/counter:1.0.2
@@ -179,8 +179,9 @@ Constantes de variables a usar en la configuración, con valores específicos de
     timestamp: 1
 
 
-Definición de autosecalado con HPA
-Se define luego la política de autoescalado que sirve para que el servicio de la aplicación puede responder antes las distintas cargas de trabajo manejadas. El HPA de Kubernetes permite realizar esa variación del número de pods desplegados mediante un replication controller en función de diferentes métricas.
+Definición de autoescalado con HPA
+Se define luego la política de auto escalado que sirve para que el servicio de la aplicación puede responder antes las distintas cargas de trabajo manejadas. El HPA de Kubernetes permite realizar esa variación del número de pods desplegados mediante un replication controller en función de diferentes métricas. Este crea los pods necesarios para la aplicación, ya sea que implique escalar horizontalmente hacía arriba o hacia abajo, es decir, aumente o disminuya la demanda por medio de la métrica: porcentaje de uso promedio de la CPU.
+
 
     apiVersion: autoscaling/v2beta1
     kind: HorizontalPodAutoscaler
@@ -201,7 +202,7 @@ Se define luego la política de autoescalado que sirve para que el servicio de l
 
 Definición de chequeos de salud del Deployment
 
-Se hacen los chequeso de salud del deploymebt, en este contexto en el archivo de deployment.yaml dentro de los templates definidos.
+Se hacen los chequeos de salud del deployment, en este contexto en el archivo de deployment.yaml dentro de los templates definidos. 
 
      livenessProbe:
               httpGet:
@@ -239,7 +240,7 @@ Para el acceso de forma pública a la aplicación correspondiente, se definirá 
               servicePort: {{ .Values.port}}
               
 ### Script de automatización
-Para la configuración y despliegue rápido del servicio del contador online en Kubernetes, se tiene la configuración del script mostrado abajo. Este conjunto de instrucciones para la interfaz de comandos de Linux automatiza la construcción y despliegue de la aplicación en un cluster k8s. Específicamente realiza la Construcción de la aplicación, las Pruebas de Integración, el Aprovisionamiento de paquetes, el Despliegue y exposición pública, y las Pruebas de humo.
+Para la configuración y despliegue rápido del servicio del contador online en Kubernetes, se tiene la configuración del script mostrado abajo. Este conjunto de instrucciones para la interfaz de comandos de Linux automatiza la construcción y despliegue de la aplicación en un clúster k8s. Específicamente realiza la Construcción de la aplicación, las Pruebas de Integración, el Aprovisionamiento de paquetes, el Despliegue y exposición pública, y las Pruebas de humo.
 
 •Construcción, Aprovisionamiento:
 Instalación con Helm de un Chart que provee un nombre único y los paquetes necesarios para la instalación de la aplicación de Python.
@@ -264,7 +265,7 @@ Primero empezaremos por lo más básico; revisar el estado con información un p
 
     kubectl get pods -o wide
 
-Luego, realizaremos una prueba de humo en algo más específico, o sea un Service. El Servicio se basa en la manera de expoenr a una aplicación ejecutándose en un conjunto de Pods trabajando como un servicio de red.
+Luego, realizaremos una prueba de humo en algo más específico, o sea un Service. El Servicio se basa en la manera de exponer a una aplicación ejecutándose en un conjunto de Pods trabajando como un servicio de red.
 
     EXTERNAL_IP=$(kubectl get ingress gateway-ingress -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
     curl -I http://${EXTERNAL_IP}
@@ -285,7 +286,7 @@ Pruebas unitarias para la aplicación desarrollada en Python
     python ~/sd-project/test.py
     
 • Script para actualizar la aplicación desplegada
-Si el desarrollador hace cambios en la aplicación y quiere liberar esa nueva versión, se ha desarrollado otro script que permite que el sistema actualicen esos cambios en el despliegue. Dicho archivo tiene de nombre "upgrade.sh"
+Si el desarrollador hace cambios en la aplicación y quiere liberar esa nueva versión, se ha desarrollado otro script que permite que el sistema actualice esos cambios en el despliegue. Dicho archivo tiene de nombre "upgrade.sh"
 
     #!/bin/bash
     number=$RANDOM
@@ -311,5 +312,33 @@ Si el desarrollador hace cambios en la aplicación y quiere liberar esa nueva ve
     echo "Corriendo pruebas..."
     python3 test.py
     kubectl get ingress
-    echo "Ingresar a la ip publica, la ruta / muestra la aplicación que cuenta el numero de veces que se ingresa a la app y /health que el microservicio se encuentra arriba"
+    echo "Ingresar a la ip publica, la ruta / muestra la aplicación que cuenta el número de veces que se ingresa a la app y /health que el microservicio se encuentra arriba"
+• Script para actualizar la aplicación desplegada
+Si el desarrollador hace cambios en la aplicación y quiere liberar esa nueva versión, se ha desarrollado otro script que permite que el sistema actualice esos cambios en el despliegue. Dicho archivo tiene de nombre "upgrade.sh"
+
+    #!/bin/bash
+    number=$RANDOM
+    echo "Generando nueva imagen con los cambios"
+    echo "."
+    echo ".."
+    docker build --tag german2404/counter:latest .
+    echo "Subiendo los cambios al repositorio "
+    echo "."
+    echo ".."
+    docker push german2404/counter:latest
+    echo "desplegando los cambios en la aplicación"
+    echo "."
+    echo ".."
+    helm upgrade pythonapp ~/sd-project/sd-project --debug
+    echo "..."
+    echo "App web en python desplegada junto a la base de datos"
+    sleep 3
+    echo "..."
+    echo "Instalando dependencias..."
+    pip3 install flask
+    pip3 install redis
+    echo "Corriendo pruebas..."
+    python3 test.py
+    kubectl get ingress
+    echo "Ingresar a la ip publica, la ruta / muestra la aplicación que cuenta el número de veces que se ingresa a la app y /health que el microservicio se encuentra arriba"
 
