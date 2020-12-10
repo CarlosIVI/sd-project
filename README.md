@@ -1,12 +1,15 @@
 #Counter app deployed in Kubernetes
+
+
 [John Sebastian Urbano Lenis](https://github.com/SebastianUrbano/),
 [German Carvajal](https://github.com/German2404),
 [Jhan Carlos Diaz Vidal](https://github.com/CarlosIVI/),
 and [Mateo Matta López](https://github.com/MateoMatta)
 
-Tabla de contenido
 
-### Table of Contents
+
+
+### Tabla de contenido
 1. [Introducción](#introduccion)
 1. [Objetivo](#objetivo)
 1. [Requerimientos y Dependencias](#requerimientos-y-dependencias)
