@@ -46,6 +46,7 @@ En el bloque de código que se muestra, se encuentra el código para construir a
 
 Configuración implementación de funciones de aplicación Python, archivo app.py
 
+
     from flask import Flask
     from redis import Redis
     import os
@@ -86,6 +87,7 @@ Archivo de requerimientos requirements.txt del contenedor de Docker para ejecuta
 Helm es una herramienta que ayuda a gestionar aplicaciones de Kubernetes. Ayuda a manejar los Kubernetes haciendo uso de cartas de navegación (Charts). Esta ayuda a definir, instalar y actualizar aplicaciones de Kubernetes. Se mostrará a continuación los archivos y configuraciones necesarios para desplegar la aplicación de este proyecto.
 
 Definición del Deployment de Kubernetes y redireccionamiento del servicio usando NodePort dentro del archivo deployment.yaml. El NodePort es el servicio utilizado para que el resto de servicios y apps conozcan al aplicativo.
+
     ---
     apiVersion: apps/v1
     kind: Deployment
@@ -139,6 +141,7 @@ Definición del Deployment de Kubernetes y redireccionamiento del servicio usand
 
 
 Descripción del chart en el archivo Chart.yaml
+
 
     apiVersion: v1
     name: sd-project
