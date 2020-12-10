@@ -1,0 +1,6 @@
+Requirement already satisfied: flask in /usr/local/lib/python3.7/dist-packages (1.1.2)
+Requirement already satisfied: Werkzeug>=0.15 in /usr/local/lib/python3.7/dist-packages (from flask) (1.0.1)
+Requirement already satisfied: itsdangerous>=0.24 in /usr/local/lib/python3.7/dist-packages (from flask) (1.1.0)
+Requirement already satisfied: click>=5.1 in /usr/local/lib/python3.7/dist-packages (from flask) (7.0)
+Requirement already satisfied: Jinja2>=2.10.1 in /usr/local/lib/python3.7/dist-packages (from flask) (2.11.2)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.7/dist-packages (from Jinja2>=2.10.1->flask) (1.1.1)
