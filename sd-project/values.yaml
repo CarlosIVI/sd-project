@@ -5,6 +5,6 @@ servicetype: NodePort
 name: pythonapp
 ingressname: gateway-ingress
 minReplicas: 3
-maxReplicas: 10
-cpu: 1
+maxReplicas: 7
+cpu: 80
 timestamp: 1
